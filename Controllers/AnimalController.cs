@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using PagedList;
 using AnimalApi.Models;
 
 namespace AnimalApi.Controller
@@ -17,7 +18,7 @@ namespace AnimalApi.Controller
       _db =db;
     }
    [HttpGet]
-    public ActionResult<IEnumerable<Animal>> Get(string name, string species, string gender, int? age, bool hasSpecialMedicalNeeds)
+    public ActionResult<IEnumerable<Animal>> Get(string name, string species, string gender, int? age, bool hasSpecialMedicalNeeds, int? page)
     {
       var query = _db.Animals.AsQueryable();
       if(name != null)
@@ -36,7 +37,14 @@ namespace AnimalApi.Controller
       {
         query = query.Where(entry => entry.SpecialMedicalNeeds == true);
       }
-      return query.ToList();
+
+      if(page == null)
+      {
+        page= 1;
+      }
+      int pageSize = 3;
+      int pageNumber = (page ?? 1);
+      return query.ToPagedList(pageNumber, pageSize).ToList();
     }
     [HttpGet("{id}")]
     public ActionResult<Animal> Get(int id)
