@@ -53,6 +53,15 @@ namespace AnimalApi.Controller
       return _db.Animals.FirstOrDefault(entry => entry.AnimalId == id);
     }
 
+    [HttpGet("random")]
+    public ActionResult<Animal> Get()
+    {
+       int maxId = _db.Animals.Count();
+      Random rnd = new Random();
+      int randId= rnd.Next(1, maxId+1);
+      return _db.Animals.FirstOrDefault(entry => entry.AnimalId == randId);
+    }
+
      [HttpPost]
     public void Post([FromBody] Animal animal)
     {
@@ -77,13 +86,5 @@ namespace AnimalApi.Controller
       _db.SaveChanges();
     }
 
-    [HttpGet]
-    public ActionResult<Animal> Random()
-    {
-      int maxId = _db.Animals.Count();
-      Random rnd = new Random();
-      int randId= rnd.Next(1, maxId+1);
-      return _db.Animals.FirstOrDefault(entry => entry.AnimalId == randId);
-    }
   }
 }
