@@ -13,7 +13,9 @@ namespace AnimalApi.Models
     public string Gender { get; set; }
     [Required]
     public int Age { get; set; }
+    [Required]
     public bool SpecialMedicalNeeds { get; set; }
+    [Url]
     public string PicUrl { get; set; }
   }
 }
