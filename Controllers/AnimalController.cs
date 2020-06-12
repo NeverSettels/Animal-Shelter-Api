@@ -78,7 +78,6 @@ namespace AnimalApi.Controller
 
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] Animal animal)
-
     {
       animal.AnimalId = id;
       _db.Entry(animal).State = EntityState.Modified;
@@ -92,6 +91,5 @@ namespace AnimalApi.Controller
       _db.Animals.Remove(animlaToDelete);
       _db.SaveChanges();
     }
-
   }
 }

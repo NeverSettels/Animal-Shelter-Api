@@ -18,7 +18,7 @@ namespace AnimalApi.Models
           new Animal { AnimalId = 3, Name = "Cha", Species = "Beta fish", Age = 1, Gender = "Male", SpecialMedicalNeeds= false, PicUrl= "https://i.ytimg.com/vi/QRGl4AkaOzE/maxresdefault.jpg"  },
           new Animal { AnimalId = 4, Name = "Pip", Species = "Cat", Age = 4, Gender = "Female" , SpecialMedicalNeeds= true, PicUrl= "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg"  },
           new Animal { AnimalId = 5, Name = "Bartholomew", Species = "Dinosaur", Age = 22, Gender = "Male"  , SpecialMedicalNeeds= false, PicUrl= "https://i.redd.it/uahsv0e85o801.jpg"  },
-           new Animal { AnimalId = 6, Name = "Tina", Species = "Dog", Age = 1, Gender = "Female"  , SpecialMedicalNeeds= false, PicUrl= "hhttps://townsquare.media/site/393/files/2019/05/teddy.jpg?w=980&q=75"  }
+          new Animal { AnimalId = 6, Name = "Tina", Species = "Dog", Age = 1, Gender = "Female"  , SpecialMedicalNeeds= false, PicUrl= "hhttps://townsquare.media/site/393/files/2019/05/teddy.jpg?w=980&q=75"  }
       );
         }
     public DbSet<Animal> Animals { get; set; }

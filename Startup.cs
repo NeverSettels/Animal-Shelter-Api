@@ -18,7 +18,6 @@ namespace AnimalApi
       Configuration = configuration;
     }
 
-   
     public IConfiguration Configuration { get; }
 
     // This method gets called by the runtime. Use this method to add services to the container.
@@ -27,7 +26,6 @@ namespace AnimalApi
       services.AddDbContext<AnimalApiContext>(opt =>
           opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
 
       services.AddSwaggerGen(c =>
        {

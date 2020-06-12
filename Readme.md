@@ -61,7 +61,7 @@ _The software is provided as is. It might work as expected - or not. Use at your
 
 ## Bugs
 
-_No known bugs at this time._
+_hasSpecialMedicalNeeds being set to false will return all animals as a bug/feature._
 
 ### License
 
