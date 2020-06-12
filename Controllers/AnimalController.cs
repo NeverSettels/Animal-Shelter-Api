@@ -19,7 +19,7 @@ namespace AnimalApi.Controller
    [HttpGet]
     public ActionResult<IEnumerable<Animal>> Get()
     {
-      var query = _db.Animal.AsQueryable();
+      var query = _db.Animals.AsQueryable();
       return query.ToList();
     }
     [HttpGet("{id}")]
