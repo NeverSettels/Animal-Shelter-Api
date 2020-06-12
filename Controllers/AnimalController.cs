@@ -70,7 +70,6 @@ namespace AnimalApi.Controller
 
     [HttpDelete("{id}")]
     public void Delete(int id)
-
     {
       var animlaToDelete = _db.Animals.FirstOrDefault(entry => entry.AnimalId == id);
       _db.Animals.Remove(animlaToDelete);
