@@ -6,8 +6,26 @@
 
 ## Description
 
-This ia an Animal shelter Api with Full CRUD functionality. Detailed documentation on end point can be seen on live
-server go to **Setup/Installation Requirements** and follow along to see and play with said end points.
+This ia an Animal shelter Api with Full CRUD functionality.
+
+Api has the following end points:
+
+_GET /api/Animal => returns list of animals Queriable by, name, species, gender, age and hasSpecialMedicalNeeds._
+
+_POST /api/Animal => post new Animal._
+
+_GET /api/Animal/{id} => Returns one animal with matching ID._
+
+_PUT /api/Animal/{id} => Edits one Animal With Matching ID._
+
+_DELETE /api/Animal/{id} => Deletes one Animal With Matching ID._
+
+_GET /api/Animal/random => Returns one Random Animal._
+
+_GET /api/Animal/page={page} => Returns paginated results with 3 Animals per page (for easy visualisation with Seeded
+data)_
+
+Too see more details follow **Setup/Installation Requirements** and use the Swager UI at endpoint /index.html.
 
 ## Support
 
