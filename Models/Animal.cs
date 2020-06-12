@@ -1,15 +1,15 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Animal-Api.Models
+namespace AnimalApi.Models
 {
   public class Animal
   {
-    public int AnimalId;
-    public string Name;
-    public string Species;
-    public string Gender;
-    public string Age;
-    public bool SpecialMedicalNeeds;
-    public string PicUrl;
+    public int AnimalId { get; set; }
+    public string Name { get; set; }
+    public string Species { get; set; }
+    public string Gender { get; set; }
+    public string Age { get; set; }
+    public bool SpecialMedicalNeeds { get; set; }
+    public string PicUrl { get; set; }
   }
 }

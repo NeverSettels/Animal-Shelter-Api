@@ -2,24 +2,24 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Animal.Models;
+using AnimalApi.Models;
 
-namespace Animal-Api.Controller
+namespace AnimalApi.Controller
 {
   [Route("api/[controller]")]
   [ApiController]
   public class AnimalController : ControllerBase
   {
-    private AnimalContext _db;
+    private AnimalApiContext _db;
 
-    public AnimalController(AnimalContext db)
+    public AnimalController(AnimalApiContext db)
     {
       _db =db;
     }
    [HttpGet]
-    public ActionResult<IEnumerable<Doggo>> Get()
+    public ActionResult<IEnumerable<Animal>> Get()
     {
-      var query = _db.Doggos.AsQueryable();
+      var query = _db.Animal.AsQueryable();
       return query.ToList();
     }
     [HttpGet("{id}")]
@@ -39,7 +39,7 @@ namespace Animal-Api.Controller
     public void Put(int id, [FromBody] Animal animal)
 
     {
-      doggo.AnimalId = id;
+      animal.AnimalId = id;
       _db.Entry(animal).State = EntityState.Modified;
       _db.SaveChanges();
     }

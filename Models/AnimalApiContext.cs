@@ -1,11 +1,11 @@
   
 using Microsoft.EntityFrameworkCore;
 
-namespace Animal-Api.models
+namespace AnimalApi.Models
 {
- public class AnimalContext : DbContext
+ public class AnimalApiContext : DbContext
  {
-   public AnimalContext(DbContextOptions<AnimalContext> options)
+   public AnimalApiContext(DbContextOptions<AnimalApiContext> options)
             : base(options)
         {
         }
