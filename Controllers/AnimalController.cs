@@ -18,8 +18,9 @@ namespace AnimalApi.Controller
     {
       _db =db;
     }
+
    [HttpGet]
-    public ActionResult<IEnumerable<Animal>> Get(string name, string species, string gender, int? age, bool hasSpecialMedicalNeeds, int? page)
+    public ActionResult<IEnumerable<Animal>> Get(string name, string species, string gender, int? age, bool hasSpecialMedicalNeeds)
     {
       var query = _db.Animals.AsQueryable();
       if(name != null)
@@ -38,14 +39,20 @@ namespace AnimalApi.Controller
       {
         query = query.Where(entry => entry.SpecialMedicalNeeds == true);
       }
+      return query.ToList();
+    }
 
-      if(page == null)
+    [HttpGet("page={page}")]
+    public ActionResult<IEnumerable<Animal>> Get(int? page)
+    {
+       if(page == null)
       {
         page= 1;
       }
       int pageSize = 3;
       int pageNumber = (page ?? 1);
-      return query.ToPagedList(pageNumber, pageSize).ToList();
+     return  _db.Animals.ToPagedList(pageNumber, pageSize).ToList();
+
     }
     [HttpGet("{id}")]
     public ActionResult<Animal> Get(int id)
