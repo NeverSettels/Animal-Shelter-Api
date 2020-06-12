@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PagedList;
+using System;
 using AnimalApi.Models;
 
 namespace AnimalApi.Controller
@@ -74,6 +75,15 @@ namespace AnimalApi.Controller
       var animlaToDelete = _db.Animals.FirstOrDefault(entry => entry.AnimalId == id);
       _db.Animals.Remove(animlaToDelete);
       _db.SaveChanges();
+    }
+
+    [HttpGet]
+    public ActionResult<Animal> Random()
+    {
+      int maxId = _db.Animals.Count();
+      Random rnd = new Random();
+      int randId= rnd.Next(1, maxId+1);
+      return _db.Animals.FirstOrDefault(entry => entry.AnimalId == randId);
     }
   }
 }
